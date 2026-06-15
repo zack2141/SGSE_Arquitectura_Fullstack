@@ -63,6 +63,15 @@ public class SolicitudController {
 		return Qsolicitud.lista_Solicitudes(estado);
 	}
 	
+	@PostMapping("/Cambiar_estado")
+	public String cambiar_estado( 
+			@RequestParam String nuevoEstado,
+			@RequestParam Long idSolicitud) {
+		
+		return Csolicitud.cambiar_Estado(nuevoEstado, idSolicitud);
+		
+	}
+	
 	
 	
 	

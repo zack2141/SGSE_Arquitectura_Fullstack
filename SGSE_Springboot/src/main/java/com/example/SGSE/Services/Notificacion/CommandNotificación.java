@@ -14,7 +14,13 @@ public class CommandNotificación {
 		NotiRep = notiRep;
 	}
 	
-	public void generar_Notificacion() {
+	public String generar_Notificacion() {
+		
+		return "";
+		
+	}
+	
+	public void almacenar_Notificación() {
 		
 	}
 

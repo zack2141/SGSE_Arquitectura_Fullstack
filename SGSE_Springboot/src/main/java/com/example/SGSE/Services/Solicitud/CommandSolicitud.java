@@ -18,21 +18,19 @@ public class CommandSolicitud {
 	
 	// instancia de repositorio
 	
-	private final NotificacionRepository notiRep;
 	private final SolicitudRepository SoliRep;
 	private final QueryUsuario QUsuario;
 	private final QueryTipoSolicitud QTsolicitud;
+	private final QuerySolicitud Qsolicitud;
 	
 	
-	
-
-	public CommandSolicitud(NotificacionRepository notiRep, SolicitudRepository soliRep, QueryUsuario qUsuario,
-			QueryTipoSolicitud qTsolicitud) {
+	public CommandSolicitud(SolicitudRepository soliRep, QueryUsuario qUsuario, QueryTipoSolicitud qTsolicitud,
+			QuerySolicitud qsolicitud) {
 		super();
-		this.notiRep = notiRep;
 		SoliRep = soliRep;
 		QUsuario = qUsuario;
 		QTsolicitud = qTsolicitud;
+		Qsolicitud = qsolicitud;
 	}
 
 	public String crear_Solicitud(Long idUsuario, Long idTipoSolicitud, String descripcion) {
@@ -67,7 +65,37 @@ public class CommandSolicitud {
 		
 	}
 	
-	public void cambiar_Estado() {
+	public void actualizar_solicitd (Solicitud solicitud) {
+		
+		SoliRep.save(solicitud);
+		
+	}
+	
+	public String cambiar_Estado(String nuevoEstado, Long id) {
+		
+		Solicitud solicitud = Qsolicitud.obtener_Solicitud(id);
+		
+		if(solicitud == null){
+			return "Error al encontrar la solicitud";
+		}
+		
+		if(nuevoEstado.equals("") || nuevoEstado.isEmpty()) {
+			return "Error, se debe de llenar el campo de Estado";
+		}
+		
+		if( nuevoEstado.equals("CREADA") || nuevoEstado.equals("EN_REVISION") || nuevoEstado.equals("APROBADA") || nuevoEstado.equals("RECHAZADA") || nuevoEstado.equals("CERRADA") ) {
+			
+		}else {
+			
+			return "Error, se ingresó un estado invalido";
+			
+		}
+		
+		solicitud.setEstado(nuevoEstado);
+		
+		this.actualizar_solicitd(solicitud);
+		
+		return "cambio de estado exitoso";
 		
 	}
 	

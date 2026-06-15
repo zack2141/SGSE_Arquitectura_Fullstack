@@ -27,5 +27,9 @@ public class QuerySolicitud {
 			return SoliRep.findByEstado(estado);
 			
 		}
+		
+		public Solicitud obtener_Solicitud (Long id) {
+			return SoliRep.findById(id).orElse(null);
+		}
 
 }

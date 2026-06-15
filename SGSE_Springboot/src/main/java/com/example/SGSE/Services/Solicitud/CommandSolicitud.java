@@ -47,7 +47,7 @@ public class CommandSolicitud {
 			
 		}else if(tipoSolicitud == null) {
 			
-			return "el id de Tipo de solicitud no correponde a la base d";
+			return "el id de Tipo de solicitud no correponde a la base de datos";
 			
 		}
 		

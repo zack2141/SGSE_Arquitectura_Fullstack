@@ -47,10 +47,9 @@ public class Solicitud {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Solicitud(Long idSolicitud, Usuario usuario, TipoSolicitud tipoSolicitud, String descripción,
+	public Solicitud( Usuario usuario, TipoSolicitud tipoSolicitud, String descripción,
 			Date fechaCreacion, String estado) {
 		super();
-		this.idSolicitud = idSolicitud;
 		this.usuario = usuario;
 		this.tipoSolicitud = tipoSolicitud;
 		Descripción = descripción;

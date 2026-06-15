@@ -9,6 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,9 +24,13 @@ public class Solicitud {
 	private Long idSolicitud;
 	
 
+	@ManyToOne()
+	@JoinColumn(name = "Id_Usuario", referencedColumnName = "idUsuario")
 	@Column(name="Usuario")
 	private Usuario usuario;
 	
+	@ManyToOne()
+	@JoinColumn(name = "Id_TipoSolicitud", referencedColumnName = "idTipo")
 	@Column(name="TipoSolicitud")
 	private TipoSolicitud tipoSolicitud;
 	

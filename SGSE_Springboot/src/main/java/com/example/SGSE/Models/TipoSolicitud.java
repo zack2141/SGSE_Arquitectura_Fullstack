@@ -31,9 +31,8 @@ public class TipoSolicitud {
 		// TODO Auto-generated constructor stub
 	}
 
-	public TipoSolicitud(Long idTipo, String nombre, String descripcion, String tiempoestimadodias) {
+	public TipoSolicitud( String nombre, String descripcion, String tiempoestimadodias) {
 		super();
-		this.idTipo = idTipo;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.tiempoestimadodias = tiempoestimadodias;

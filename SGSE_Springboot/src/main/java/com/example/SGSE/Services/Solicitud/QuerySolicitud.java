@@ -1,7 +1,10 @@
 package com.example.SGSE.Services.Solicitud;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.example.SGSE.Models.Solicitud;
 import com.example.SGSE.Repositories.NotificacionRepository;
 import com.example.SGSE.Repositories.SolicitudRepository;
 
@@ -19,7 +22,9 @@ public class QuerySolicitud {
 			
 		}
 		
-		public void lista_Solicitudes() {
+		public List<Solicitud> lista_Solicitudes(String estado) {
+			
+			return SoliRep.findByEstado(estado);
 			
 		}
 

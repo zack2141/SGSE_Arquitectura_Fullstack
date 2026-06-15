@@ -56,6 +56,17 @@ public class SolicitudController {
 		return QTsolicitud.consultar_Lista_Tipo_Solicitud();
 	}
 	
+	@GetMapping("/Lista_Solicitudes")
+	public List<Solicitud> listar_solicitudes (
+			@RequestParam String estado) {
+		
+		return Qsolicitud.lista_Solicitudes(estado);
+	}
+	
+	
+	
+	
+	
 	
 	
 	

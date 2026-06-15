@@ -26,12 +26,10 @@ public class Solicitud {
 
 	@ManyToOne()
 	@JoinColumn(name = "Id_Usuario", referencedColumnName = "idUsuario")
-	@Column(name="Usuario")
 	private Usuario usuario;
 	
 	@ManyToOne()
 	@JoinColumn(name = "Id_TipoSolicitud", referencedColumnName = "idTipo")
-	@Column(name="TipoSolicitud")
 	private TipoSolicitud tipoSolicitud;
 	
 	@Column(name="Descripcion")

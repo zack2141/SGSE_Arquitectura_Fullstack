@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,13 +22,14 @@ public class Notificacion {
 	private Long idNotificacion;
 	
 
-	@Column(name="Usuario")
+	@ManyToOne()
+	@JoinColumn(name = "Id_Usuario", referencedColumnName = "idUsuario")
 	private Usuario usuario;
 	
 	@Column(name="Mensaje")
 	private String mensaje;
 	
-	@Column(name="Usuario")
+	@Column(name="fecha")
 	private LocalDateTime fecha;
 	
 	@Column(name="EstadoSolicitud")

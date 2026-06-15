@@ -14,6 +14,10 @@ public class QueryReporte {
 		SoliRep = soliRep;
 	}
 	
+	public void generar_Reporte() {
+		
+	}
+	
 	
 
 }

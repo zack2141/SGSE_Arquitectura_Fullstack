@@ -99,7 +99,7 @@ public class CommandSolicitud {
 			return "Error, se debe de llenar el campo de Estado";
 		}
 		
-		if( nuevoEstado.equals("CREADA") || nuevoEstado.equals("EN_REVISION") || nuevoEstado.equals("APROBADA") || nuevoEstado.equals("RECHAZADA") || nuevoEstado.equals("CERRADA") ) {
+		if( nuevoEstado.toUpperCase().equals("CREADA") || nuevoEstado.toUpperCase().equals("EN_REVISION") || nuevoEstado.toUpperCase().equals("APROBADA") || nuevoEstado.toUpperCase().equals("RECHAZADA") || nuevoEstado.toUpperCase().equals("CERRADA") ) {
 			
 		}else {
 			
@@ -107,7 +107,7 @@ public class CommandSolicitud {
 			
 		}
 		
-		solicitud.setEstado(nuevoEstado);
+		solicitud.setEstado(nuevoEstado.toUpperCase());
 		
 		this.actualizar_solicitd(solicitud);
 		

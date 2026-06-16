@@ -1,6 +1,7 @@
 package com.example.SGSE.Models;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,14 +24,14 @@ public class Notificacion {
 	
 
 	@ManyToOne()
-	@JoinColumn(name = "Id_Usuario", referencedColumnName = "idUsuario")
-	private Usuario usuario;
+	@JoinColumn(name = "Id_solicitud", referencedColumnName = "idSolicitud")
+	private Solicitud solicitud;
 	
 	@Column(name="Mensaje")
 	private String mensaje;
 	
 	@Column(name="fecha")
-	private LocalDateTime fecha;
+	private Date fecha;
 	
 	@Column(name="EstadoSolicitud")
 	private String estadoSolicitud;
@@ -40,15 +41,18 @@ public class Notificacion {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Notificacion(Long idNotificacion, Usuario usuario, String mensaje, LocalDateTime fecha,
+	
+
+	public Notificacion( Solicitud solicitud, String mensaje, Date fecha,
 			String estadoSolicitud) {
 		super();
-		this.idNotificacion = idNotificacion;
-		this.usuario = usuario;
+		this.solicitud = solicitud;
 		this.mensaje = mensaje;
-		this.fecha = fecha;
+		this.fecha = fecha  ;
 		this.estadoSolicitud = estadoSolicitud;
 	}
+
+
 
 	public Long getIdNotificacion() {
 		return idNotificacion;
@@ -58,12 +62,12 @@ public class Notificacion {
 		this.idNotificacion = idNotificacion;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+	public Solicitud getUsuario() {
+		return solicitud;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setUsuario(Solicitud solicitud) {
+		this.solicitud = solicitud;
 	}
 
 	public String getMensaje() {
@@ -74,11 +78,11 @@ public class Notificacion {
 		this.mensaje = mensaje;
 	}
 
-	public LocalDateTime getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(LocalDateTime fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 

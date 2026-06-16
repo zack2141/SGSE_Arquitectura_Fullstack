@@ -30,20 +30,22 @@ public class CommandUsuario {
         
         if(nuevo.getRol().equals("")  || nuevo.getRol().isEmpty() ) {
         	
-        	if(!nuevo.getRol().equals("SOLICITANTE")) {
-        		
-        		if(!nuevo.getRol().equals("FUNCIONARIO")){
-        			return "debe de ingresar un rol vaildo";
-        		}
-        		
-        	}
+        	return "se debe de agregar información al campo de rol";
 			
 			
-		}
+		}else if(!nuevo.getRol().toUpperCase().equals("SOLICITANTE")) {
+    		
+    		if(!nuevo.getRol().toUpperCase().equals("FUNCIONARIO")){
+    			return "debe de ingresar un rol vaildo";
+    		}
+    		
+    	}
         
         if( this.verfica_Cedula(nuevo.getIdusuario())) {
         	return "ya existe un usuario con el ID";
         }
+        
+        nuevo.setRol(nuevo.getRol().toUpperCase());
         
         
 		UsuRep.save(nuevo);
